@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
             return HomeFragment()
         }
     }
+    // creating a recycle adapter to convert the data into a view
     class RecycleAdapter (private val avengerList: Array<String>, private val clickListener : (TextView)->Unit)
         :RecyclerView.Adapter<RecycleAdapter.RecyclerViewHolder>(){
 
@@ -30,6 +31,7 @@ class HomeFragment : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
             val view : TextView = LayoutInflater.from(parent.context).inflate(R.layout.recycleview_list_item
                 ,parent,false) as TextView
+            /// inflating the certain layout as individual recycler view items
             return RecyclerViewHolder(view)
         }
         override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
@@ -37,7 +39,7 @@ class HomeFragment : Fragment() {
             holder.textView.setOnClickListener{clickListener(holder.textView)}
         }
 
-
+        // getting size of the list visible on the screen
         override fun getItemCount(): Int {
             return avengerList.size
         }
@@ -51,6 +53,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        // dummy list for recycler view
         val avengerList :Array<String> = arrayOf("Iron Man","Captain America","Scarlet Witch","Black Widow",
             "Spiderman","Winter Soldier","Vision","Wasp")
         val recyclerView : RecyclerView = view.findViewById(R.id.recycle_view)

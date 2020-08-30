@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         val profileFragment = ProfileFragment()
         val settingFragment = SettingsFragment()
         setCurrentFragment(homeFragment)
+        // setting correct fragment acc to the id
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home_icon -> setCurrentFragment(homeFragment)

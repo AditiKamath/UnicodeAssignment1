@@ -24,6 +24,7 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         val next_page = view.findViewById<Button>(R.id.next_page)
+        // intent to open new activity from the fragment
         next_page.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@ProfileFragment.context, LoginActivity::class.java)
             startActivity(intent)

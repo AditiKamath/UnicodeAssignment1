@@ -18,10 +18,11 @@ class LoginActivity : AppCompatActivity() {
             saveData()
         })
     }
+    // function to save the data in shared preferences
     private fun saveData(){
         val username : String = username.text.toString()
         val password : String = password.text.toString()
-
+        // shared preferences to save the data
         val sharedPref : SharedPreferences = getSharedPreferences("sharedPref",Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = sharedPref.edit()
         editor.apply(){
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         }.apply()
         Toast.makeText(this,"Data Saved",Toast.LENGTH_SHORT).show()
     }
+    // function to echo the data on opening the activity
     private fun loadData(){
         val sharedPref : SharedPreferences = getSharedPreferences("sharedPref",Context.MODE_PRIVATE)
         val savedString : String? = sharedPref.getString("USERNAME",null)
